@@ -2,6 +2,8 @@
 
 A single-page web application that hosts a collection of fun, classic mini-games. This project is built with pure HTML, CSS, and JavaScript, featuring a modern and animated UI.
 
+## LIVE: https://jagadheeeeesh.github.io/Mini-Game-Hub/
+
 ## ✨ Features
 
 - **Three Games in One:**
@@ -17,7 +19,7 @@ A single-page web application that hosts a collection of fun, classic mini-games
 
 1.  Clone or download this repository.
 2.  Open the `index.html` file in your favorite web browser (e.g., Chrome, Firefox, Edge).
-
+3.  play at https://jagadheeeeesh.github.io/Mini-Game-Hub/
 ### 🕹️ Game Instructions
 
 - **Tic Tac Toe**:
