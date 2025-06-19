@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,32 +14,44 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
+
         body::before {
             content: '';
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             z-index: 0;
             pointer-events: none;
             background: radial-gradient(circle at 20% 30%, #fffbe7 0 80px, transparent 200px),
-                        radial-gradient(circle at 80% 70%, #ffe082 0 100px, transparent 250px),
-                        radial-gradient(circle at 60% 10%, #b2ebf2 0 60px, transparent 200px);
+                radial-gradient(circle at 80% 70%, #ffe082 0 100px, transparent 250px),
+                radial-gradient(circle at 60% 10%, #b2ebf2 0 60px, transparent 200px);
             opacity: 0.5;
             animation: floatBg 10s linear infinite alternate;
         }
+
         @keyframes floatBg {
-            0% { background-position: 20% 30%, 80% 70%, 60% 10%; }
-            100% { background-position: 25% 35%, 75% 65%, 65% 15%; }
+            0% {
+                background-position: 20% 30%, 80% 70%, 60% 10%;
+            }
+
+            100% {
+                background-position: 25% 35%, 75% 65%, 65% 15%;
+            }
         }
+
         .container {
             max-width: 520px;
             margin: 48px auto;
-            background: rgba(255,251,231,0.98);
+            background: rgba(255, 251, 231, 0.98);
             border-radius: 28px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
             padding: 36px 28px 28px 28px;
             position: relative;
             z-index: 1;
         }
+
         h1 {
             text-align: center;
             color: #ff6f61;
@@ -46,18 +59,28 @@
             font-size: 2.2em;
             letter-spacing: 2px;
             text-shadow: 0 2px 8px #fffbe7, 0 1px 0 #ffb347;
-            animation: popIn 1s cubic-bezier(.68,-0.55,.27,1.55);
+            animation: popIn 1s cubic-bezier(.68, -0.55, .27, 1.55);
         }
+
         @keyframes popIn {
-            0% { transform: scale(0.7); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+            0% {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
+
         .menu {
             display: flex;
             justify-content: center;
             gap: 18px;
             margin-bottom: 28px;
         }
+
         .menu button {
             background: linear-gradient(135deg, #ffb347 60%, #ff6f61 100%);
             border: none;
@@ -71,22 +94,35 @@
             font-weight: bold;
             outline: none;
         }
-        .menu button.active, .menu button:hover {
+
+        .menu button.active,
+        .menu button:hover {
             background: linear-gradient(135deg, #ff6f61 60%, #ffb347 100%);
             transform: scale(1.08) translateY(-2px);
             box-shadow: 0 4px 16px #ffb34755;
         }
+
         .game-section {
             display: none;
             animation: fadeIn 0.7s;
         }
+
         .game-section.active {
             display: block;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         /* Tic Tac Toe */
         .ttt-board {
             display: grid;
@@ -95,6 +131,7 @@
             justify-content: center;
             margin: 24px 0 12px 0;
         }
+
         .ttt-cell {
             width: 70px;
             height: 70px;
@@ -111,14 +148,17 @@
             user-select: none;
             transition: background 0.2s, transform 0.1s;
         }
+
         .ttt-cell:hover {
             background: #ffd54f;
             transform: scale(1.08);
         }
+
         .ttt-cell:active {
             background: #ffe082;
             transform: scale(0.96);
         }
+
         .ttt-status {
             text-align: center;
             margin-bottom: 10px;
@@ -128,6 +168,7 @@
             letter-spacing: 1px;
             text-shadow: 0 1px 0 #fffbe7;
         }
+
         .ttt-reset {
             display: block;
             margin: 0 auto;
@@ -142,16 +183,19 @@
             box-shadow: 0 2px 8px #ffd54f44;
             transition: background 0.2s, transform 0.1s;
         }
+
         .ttt-reset:hover {
             background: linear-gradient(135deg, #ff6f61 60%, #ffb347 100%);
             transform: scale(1.06);
         }
+
         /* Snake */
         .snake-container {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
         #snake-canvas {
             background: #e0f7fa;
             border: 3px solid #4dd0e1;
@@ -160,10 +204,12 @@
             box-shadow: 0 2px 12px #4dd0e144;
             transition: box-shadow 0.2s;
         }
+
         #snake-canvas:focus {
             outline: 2px solid #ff6f61;
             box-shadow: 0 0 0 4px #ffb34755;
         }
+
         .snake-instructions {
             font-size: 1em;
             color: #00897b;
@@ -174,6 +220,7 @@
             padding: 4px 10px;
             box-shadow: 0 1px 4px #b2ebf244;
         }
+
         /* Rock Paper Scissors */
         .rps-choices {
             display: flex;
@@ -181,6 +228,7 @@
             gap: 24px;
             margin: 24px 0 10px 0;
         }
+
         .rps-choices button {
             background: linear-gradient(135deg, #81d4fa 60%, #0288d1 100%);
             border: none;
@@ -194,15 +242,18 @@
             transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
             outline: none;
         }
+
         .rps-choices button:hover {
             background: linear-gradient(135deg, #0288d1 60%, #81d4fa 100%);
             transform: scale(1.12);
             box-shadow: 0 4px 16px #0288d155;
         }
+
         .rps-choices button:active {
             background: #81d4fa;
             transform: scale(0.96);
         }
+
         .rps-result {
             text-align: center;
             font-weight: bold;
@@ -217,27 +268,51 @@
             padding: 6px 0;
             transition: background 0.2s, color 0.2s;
         }
+
         .rps-result.win {
             background: #c8e6c9;
             color: #388e3c;
         }
+
         .rps-result.lose {
             background: #ffcdd2;
             color: #d32f2f;
         }
+
         .rps-result.draw {
             background: #fff9c4;
             color: #fbc02d;
         }
+
         @media (max-width: 600px) {
-            .container { padding: 12px 2vw; }
-            .ttt-board { grid-template-columns: repeat(3, 20vw); }
-            .ttt-cell { width: 20vw; height: 20vw; font-size: 1.5em; }
-            #snake-canvas { width: 90vw !important; height: 90vw !important; }
-            .rps-choices button { width: 18vw; height: 18vw; font-size: 1.2em; }
+            .container {
+                padding: 12px 2vw;
+            }
+
+            .ttt-board {
+                grid-template-columns: repeat(3, 20vw);
+            }
+
+            .ttt-cell {
+                width: 20vw;
+                height: 20vw;
+                font-size: 1.5em;
+            }
+
+            #snake-canvas {
+                width: 90vw !important;
+                height: 90vw !important;
+            }
+
+            .rps-choices button {
+                width: 18vw;
+                height: 18vw;
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>🎮 Mini Game Hub 🎲</h1>
@@ -254,7 +329,8 @@
         <div id="snake-section" class="game-section">
             <div class="snake-container">
                 <canvas id="snake-canvas" width="240" height="240"></canvas>
-                <div class="snake-instructions">Use arrow keys to move. Eat apples 🍎. Don't hit the wall or yourself!</div>
+                <div class="snake-instructions">Use arrow keys to move. Eat apples 🍎. Don't hit the wall or yourself!
+                </div>
                 <button class="ttt-reset" id="snake-restart">Restart</button>
             </div>
         </div>
@@ -274,9 +350,9 @@
             { btn: document.getElementById('btn-snake'), section: document.getElementById('snake-section') },
             { btn: document.getElementById('btn-rps'), section: document.getElementById('rps-section') },
         ];
-        menuButtons.forEach(({btn, section}, idx) => {
+        menuButtons.forEach(({ btn, section }, idx) => {
             btn.addEventListener('click', () => {
-                menuButtons.forEach(({btn, section}, i) => {
+                menuButtons.forEach(({ btn, section }, i) => {
                     btn.classList.toggle('active', i === idx);
                     section.classList.toggle('active', i === idx);
                 });
@@ -318,12 +394,12 @@
         }
         function tttCheckWin(player) {
             const wins = [
-                [0,1,2],[3,4,5],[6,7,8],
-                [0,3,6],[1,4,7],[2,5,8],
-                [0,4,8],[2,4,6]
+                [0, 1, 2], [3, 4, 5], [6, 7, 8],
+                [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                [0, 4, 8], [2, 4, 6]
             ];
             return wins.some(line => {
-                const [a,b,c] = line;
+                const [a, b, c] = line;
                 return tttCells[a] === player && tttCells[b] === player && tttCells[c] === player;
             });
         }
@@ -336,9 +412,9 @@
         const snakeRestart = document.getElementById('snake-restart');
         let snake, snakeDir, snakeApple, snakeScore, snakeInterval, snakeGameOver;
         function snakeInit() {
-            snake = [{x:6,y:6}];
-            snakeDir = {x:1, y:0};
-            snakeApple = {x: Math.floor(Math.random()*12), y: Math.floor(Math.random()*12)};
+            snake = [{ x: 6, y: 6 }];
+            snakeDir = { x: 1, y: 0 };
+            snakeApple = { x: Math.floor(Math.random() * 12), y: Math.floor(Math.random() * 12) };
             snakeScore = 0;
             snakeGameOver = false;
             clearInterval(snakeInterval);
@@ -347,7 +423,7 @@
         }
         function snakeStep() {
             if (snakeGameOver) return;
-            let head = {x: snake[0].x + snakeDir.x, y: snake[0].y + snakeDir.y};
+            let head = { x: snake[0].x + snakeDir.x, y: snake[0].y + snakeDir.y };
             // Wrap around walls
             head.x = (head.x + 12) % 12;
             head.y = (head.y + 12) % 12;
@@ -361,7 +437,7 @@
             }
             snake.unshift(head);
             if (head.x === snakeApple.x && head.y === snakeApple.y) {
-                snakeApple = {x: Math.floor(Math.random()*12), y: Math.floor(Math.random()*12)};
+                snakeApple = { x: Math.floor(Math.random() * 12), y: Math.floor(Math.random() * 12) };
                 snakeScore++;
             } else {
                 snake.pop();
@@ -369,16 +445,16 @@
             snakeDraw();
         }
         function snakeDraw() {
-            snakeCtx.clearRect(0,0,240,240);
+            snakeCtx.clearRect(0, 0, 240, 240);
             // Draw apple
             snakeCtx.fillStyle = '#ff1744';
             snakeCtx.beginPath();
-            snakeCtx.arc(snakeApple.x*20+10, snakeApple.y*20+10, 9, 0, 2*Math.PI);
+            snakeCtx.arc(snakeApple.x * 20 + 10, snakeApple.y * 20 + 10, 9, 0, 2 * Math.PI);
             snakeCtx.fill();
             // Draw snake
-            snake.forEach((s,i) => {
-                snakeCtx.fillStyle = i===0 ? '#43a047' : '#81c784';
-                snakeCtx.fillRect(s.x*20+2, s.y*20+2, 16, 16);
+            snake.forEach((s, i) => {
+                snakeCtx.fillStyle = i === 0 ? '#43a047' : '#81c784';
+                snakeCtx.fillRect(s.x * 20 + 2, s.y * 20 + 2, 16, 16);
             });
             // Score
             snakeCtx.fillStyle = '#00897b';
@@ -387,10 +463,10 @@
         }
         document.addEventListener('keydown', e => {
             if (menuButtons[1].section.classList.contains('active')) {
-                if (e.key === 'ArrowUp' && snakeDir.y !== 1) snakeDir = {x:0,y:-1};
-                else if (e.key === 'ArrowDown' && snakeDir.y !== -1) snakeDir = {x:0,y:1};
-                else if (e.key === 'ArrowLeft' && snakeDir.x !== 1) snakeDir = {x:-1,y:0};
-                else if (e.key === 'ArrowRight' && snakeDir.x !== -1) snakeDir = {x:1,y:0};
+                if (e.key === 'ArrowUp' && snakeDir.y !== 1) snakeDir = { x: 0, y: -1 };
+                else if (e.key === 'ArrowDown' && snakeDir.y !== -1) snakeDir = { x: 0, y: 1 };
+                else if (e.key === 'ArrowLeft' && snakeDir.x !== 1) snakeDir = { x: -1, y: 0 };
+                else if (e.key === 'ArrowRight' && snakeDir.x !== -1) snakeDir = { x: 1, y: 0 };
             }
         });
         snakeRestart.addEventListener('click', snakeInit);
@@ -400,8 +476,8 @@
         // --- Rock Paper Scissors ---
         const rpsChoices = document.querySelectorAll('.rps-choices button');
         const rpsResult = document.getElementById('rps-result');
-        const rpsMap = ['rock','paper','scissors'];
-        const rpsEmoji = {rock:'✊', paper:'✋', scissors:'✌️'};
+        const rpsMap = ['rock', 'paper', 'scissors'];
+        const rpsEmoji = { rock: '✊', paper: '✋', scissors: '✌️' };
         function getRpsResultClass(result) {
             if (result.includes('win')) return 'win';
             if (result.includes('lose')) return 'lose';
@@ -411,10 +487,10 @@
         rpsChoices.forEach(btn => {
             btn.addEventListener('click', () => {
                 const user = btn.dataset.choice;
-                const ai = rpsMap[Math.floor(Math.random()*3)];
+                const ai = rpsMap[Math.floor(Math.random() * 3)];
                 let result;
                 if (user === ai) result = "It's a draw!";
-                else if ((user==='rock'&&ai==='scissors')||(user==='paper'&&ai==='rock')||(user==='scissors'&&ai==='paper'))
+                else if ((user === 'rock' && ai === 'scissors') || (user === 'paper' && ai === 'rock') || (user === 'scissors' && ai === 'paper'))
                     result = `You win! ${rpsEmoji[user]} beats ${rpsEmoji[ai]}`;
                 else result = `You lose! ${rpsEmoji[ai]} beats ${rpsEmoji[user]}`;
                 rpsResult.textContent = result;
